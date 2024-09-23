@@ -41,7 +41,7 @@ To set up the Weather Forecast Application locally, follow these steps:
    ```bash
    VITE_API_KEY=your_api_key_here
 
-   You can obtain the API key from the [Visual Crossing Weather API](https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather).
+   You can obtain the API key from the [Visual Crossing Weather API](https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather)
 
 5. **Open Your Browser:**:
     Go to http://localhost:5173 to view the application.   
