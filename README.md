@@ -17,7 +17,7 @@ This project is a weather forecast application built using React.js that fetches
 
 - **Responsive Design**: The application is styled to be visually appealing and responsive, adapting seamlessly to various screen sizes and orientations.
 
-- **Bonus Features** (Optional):
+- **Additional Features** :
   - Caching for the last searched city to enable offline viewing.
   - Pull-to-refresh functionality for updating weather data.
   - Performance optimizations like lazy loading components and optimizing API calls.
@@ -36,7 +36,7 @@ To set up the Weather Forecast Application locally, follow these steps:
    npm i
 4. **Start the Development Server:**:
    ```bash
-   npm i
+   npm run dev
 5. **Create a .env File:**:
    ```bash
    VITE_API_KEY=your_api_key_here
