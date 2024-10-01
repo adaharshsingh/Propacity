@@ -68,7 +68,7 @@ function SearchBar({ setPlace }) {
 
   return (
     <div className="relative flex justify-center">
-      <div className="bg-white w-full max-w-[40rem] shadow-2xl rounded p-2 gap-2 flex items-center mt-2">
+      <div className="bg-white w-full max-w-[40rem] shadow-2xl rounded px-2 py-0 gap-2 flex items-center">
         <img src={searchIcon} alt="search" className="w-[1.5rem] h-[1.5rem]" />
         <input
           type="text"
