@@ -68,25 +68,30 @@ function SearchBar({ setPlace }) {
 
   return (
     <div className="relative flex justify-center">
-      <div className="bg-white w-full max-w-[40rem] shadow-2xl rounded px-2 py-0 gap-2 flex items-center">
+      <div className="bg-white w-full max-w-[40rem] shadow-2xl rounded-full px-4 py-1 gap-3 flex items-center justify-center transition-all duration-300 transform hover:shadow-lg hover:scale-105">
         <img src={searchIcon} alt="search" className="w-[1.5rem] h-[1.5rem]" />
+
         <input
           type="text"
           placeholder="Search city"
           value={input}
           onChange={handleInputChange}
           onFocus={() => setDropdownOpen(true)}
-          onKeyDown={handleKeyPress} // Handle key press for Enter
-          className="focus:outline-none w-full text-black text-lg"
+          onKeyDown={handleKeyPress}
+          className="focus:outline-none w-full text-black text-lg bg-transparent placeholder-gray-500"
         />
-        <button onClick={handleSearch} className="ml-2 p-2 bg-blue-500 text-white rounded">
+
+        <button
+          onClick={handleSearch}
+          className="ml-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:bg-gradient-to-l hover:scale-105 focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+        >
           Search
         </button>
       </div>
       {isDropdownOpen && (
         <div
           ref={dropdownRef}
-          className="absolute z-10 bg-white bg-opacity-50 shadow-lg rounded w-full max-w-[40rem] mt-16"
+          className="absolute bg-white shadow-lg rounded w-full max-w-[40rem] mt-16 z-10" 
         >
           <ul className="max-h-40 overflow-y-auto">
             {filteredCities.length > 0 ? (
