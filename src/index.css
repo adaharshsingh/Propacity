@@ -18,3 +18,47 @@
   border-radius: 10px;
   border: 1px solid rgba(225,225,225,0.18);
 }
+
+/* WeatherCard Styles */
+.weather-card {
+  transform: translateY(2cm);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card:hover {
+  transform: translateY(2cm) scale(1.05); /* Scale up on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Weather Icon Styles */
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.weather-card:hover .weather-icon {
+  transform: rotate(15deg); /* Rotate icon slightly on hover */
+}
+
+/* MiniCard Styles */
+.mini-card {
+  transform: translateY(2cm);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mini-card:hover {
+  transform: translateY(2cm) scale(1.05); /* Scale up slightly on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Weather Icon Animation */
+.weather-icon {
+  transition: transform 0.5s ease-in-out;
+}
+
+.mini-card:hover .weather-icon {
+  transform: rotate(10deg); /* Rotate slightly on hover */
+}
