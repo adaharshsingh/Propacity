@@ -52,7 +52,7 @@ function App() {
                   conditions={weather.conditions}
                   isCelsius={unit === 'C'}
                 />
-                <div className="flex justify-center gap-8 flex-wrap w-[60%]">
+                <div className="flex justify-center gap-8 flex-wrap w-[60%] ">
                   {values?.slice(1, 7).map((curr) => (
                     <MiniCard
                       key={curr.datetime}

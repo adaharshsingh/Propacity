@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { useDate } from '../Utils/useDate';
 import sun from '../assets/icons/sun.png';
@@ -18,7 +17,7 @@ const WeatherCard = ({
   heatIndex,
   iconString,
   conditions,
-  isCelsius, // New prop for toggle state
+  isCelsius,
 }) => {
   const [icon, setIcon] = useState(sun);
   const { time } = useDate();
@@ -43,25 +42,19 @@ const WeatherCard = ({
     }
   }, [iconString]);
 
-  // Function to convert temperature
   const convertTemperature = (temp) => {
-    return isCelsius ? temp : Math.round((temp *1.8) + 32); // Convert to Fahrenheit
+    return isCelsius ? temp : Math.round((temp * 1.8) + 32);
   };
 
   return (
-    <div
-      className='w-[22rem] min-w-[22rem] h-[30rem] glassCard p-4'
-      style={{ transform: 'translateY(2cm)' }} // Moves the card 2cm down
-    >
+    <div className='weather-card w-[22rem] min-w-[22rem] h-[30rem] glassCard p-4'>
       <div className='flex w-full justify-center items-center gap-4 mt-12 mb-4'>
-        <img src={icon} alt="weather_icon" />
+        <img className='weather-icon' src={icon} alt="weather_icon" />
         <p className='font-bold text-5xl flex justify-center items-center'>
           {convertTemperature(temperature)} &deg;{isCelsius ? 'C' : 'F'}
         </p>
       </div>
-      <div className='font-bold text-center text-xl'>
-        {place}
-      </div>
+      <div className='font-bold text-center text-xl'>{place}</div>
       <div className='w-full flex justify-between items-center mt-4'>
         <p className='flex-1 text-center p-2'>{new Date().toDateString()}</p>
         <p className='flex-1 text-center p-2'>{time}</p>
@@ -76,7 +69,7 @@ const WeatherCard = ({
       </div>
       <div className='w-full p-3 mt-4 flex justify-between items-center'>
         <p className='font-semibold text-lg'>Heat Index</p>
-        <p className='text-lg'>{heatIndex}</p> {/* Keep heat index as is */}
+        <p className='text-lg'>{heatIndex}</p>
       </div>
       <hr className='bg-slate-600' />
       <div className='w-full p-4 flex justify-center items-center text-3xl font-semibold'>
