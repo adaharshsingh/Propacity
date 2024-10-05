@@ -11,8 +11,7 @@ import NotFound from "./Components/404";
 import TimeBasedStoreComponent from "./TimeBasedKeyValueStore/TimeBasedStoreComponent"; // Import your Time-Based Key-Value Store Component
 
 function App() {
-  const { weather, thisLocation, values, place, setPlace, fetchWeather } =
-    useStateContext();
+  const { weather, thisLocation, values, place, setPlace, fetchWeather } = useStateContext();
   const [unit, setUnit] = React.useState("C");
 
   // Function to convert temperature based on selected unit
@@ -32,10 +31,7 @@ function App() {
         {/* Navigation Bar */}
         <nav className="bg-white border-gray-200 dark:bg-blue-200 w-full my-2 fixed z-10">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 py-0">
-            <a
-              href="/"
-              className="flex items-center space-x-3 rtl:space-x-reverse"
-            >
+            <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
               <img src={logo} className="h-14" alt="Propacity Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-slate-900">
                 Propacity
