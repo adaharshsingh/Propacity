@@ -1,5 +1,6 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import axios from 'axios';
+import toast from "react-hot-toast";
 
 const StateContext = createContext();
 
@@ -29,6 +30,7 @@ export const StateContextProvider = ({ children }) => {
 
         try {
             const response = await axios.request(options);
+            console.log(response)
             const thisData = Object.values(response.data.locations)[0];
             setLocation(thisData.address);
             setValues(thisData.values);
@@ -42,7 +44,7 @@ export const StateContextProvider = ({ children }) => {
             }));
         } catch (e) {
             console.error(e);
-            alert('This place does not exist');
+            toast.error("This place does not exist");
         }
     };
 
