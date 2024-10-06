@@ -10,7 +10,6 @@ export const StateContextProvider = ({ children }) => {
     const [place, setPlace] = useState('Jaipur');
     const [thisLocation, setLocation] = useState('');
 
-    // Function to fetch weather data
     const fetchWeather = async () => {
         const options = {
             method: 'GET',
@@ -34,8 +33,6 @@ export const StateContextProvider = ({ children }) => {
             setLocation(thisData.address);
             setValues(thisData.values);
             setWeather(thisData.values[0]);
-
-            // Cache the data in localStorage
             localStorage.setItem('weatherData', JSON.stringify({
                 location: thisData.address,
                 weather: thisData.values[0],
@@ -47,12 +44,45 @@ export const StateContextProvider = ({ children }) => {
         }
     };
 
-    // Effect to fetch weather data on place change
+    const fetchWeatherByCoords = async (latitude, longitude) => {
+        const options = {
+            method: 'GET',
+            url: 'https://visual-crossing-weather.p.rapidapi.com/forecast',
+            params: {
+                aggregateHours: '24',
+                location: `${latitude},${longitude}`,
+                contentType: 'json',
+                unitGroup: 'metric',
+                shortColumnNames: 0,
+            },
+            headers: {
+                'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+                'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const response = await axios.request(options);
+            const thisData = Object.values(response.data.locations)[0];
+            setLocation(thisData.address);
+            setValues(thisData.values);
+            setWeather(thisData.values[0]);
+            setPlace(thisData.address);
+            localStorage.setItem('weatherData', JSON.stringify({
+                location: thisData.address,
+                weather: thisData.values[0],
+                values: thisData.values
+            }));
+        } catch (e) {
+            console.error(e);
+            toast.error("Failed to fetch weather data for your location");
+        }
+    };
+
     useEffect(() => {
         fetchWeather();
     }, [place]);
 
-    // Check for cached data on initial load
     useEffect(() => {
         const cachedData = localStorage.getItem('weatherData');
         if (cachedData) {
@@ -60,7 +90,7 @@ export const StateContextProvider = ({ children }) => {
             setLocation(location);
             setWeather(weather);
             setValues(values);
-            setPlace(location); // Set place to cached location for consistency
+            setPlace(location);
         }
     }, []);
 
@@ -71,7 +101,8 @@ export const StateContextProvider = ({ children }) => {
             values,
             thisLocation,
             place,
-            fetchWeather // Export fetchWeather for refreshing data
+            fetchWeather,
+            fetchWeatherByCoords
         }}>
             {children}
         </StateContext.Provider>
