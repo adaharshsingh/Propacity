@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import searchIcon from '../assets/icons/search.svg';
 import citiesData from '../assets/cities.json';
 import { useStateContext } from '../Context'; // Import the context
+import toast from 'react-hot-toast';
 
 function SearchBar({ setPlace }) {
   const { place } = useStateContext(); // Access place from context
@@ -42,7 +43,7 @@ function SearchBar({ setPlace }) {
       setInput(''); // Clear input after search
       setDropdownOpen(false);
     } catch {
-      alert('City not found');
+      toast.error("City not found");
     }
   };
 

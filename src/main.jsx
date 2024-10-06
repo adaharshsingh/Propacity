@@ -5,6 +5,7 @@ import "./index.css";
 import { StateContextProvider } from "./Context/index.jsx";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./Components/Footer.jsx";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -12,5 +13,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <App />
       <Footer />
     </StateContextProvider>
+    <Toaster/>
   </BrowserRouter>
 );
