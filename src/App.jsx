@@ -8,6 +8,9 @@ import logo from "./assets/icons/logo.png";
 import PullToRefreshComponent from "./Components/PullToRefreshComponent";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./Components/404";
+import CityCard from "./Components/CityCards";
+
+const cities = ["Delhi", "Jaipur", "Kolkata"];
 
 function App() {
   const { weather, thisLocation, values, place, setPlace, fetchWeather } =
@@ -20,6 +23,10 @@ function App() {
 
   const handleRefresh = async () => {
     console.log("Refreshing weather data...");
+    await fetchWeather();
+  };
+  const handleCityClick = async (city) => {
+    setPlace(city);
     await fetchWeather();
   };
 
@@ -42,32 +49,44 @@ function App() {
       </nav>
 
       <BackgroundLayout />
+
       <PullToRefreshComponent onRefresh={handleRefresh}>
         <Routes>
           <Route
             path="/"
             element={
-              <main className="w-full flex flex-wrap mt-20  lg:mt-40 gap-8 py-4 px-[5%] sm:px-[10%] items-center justify-center">
-                <WeatherCard
-                  place={thisLocation}
-                  windspeed={weather.wspd}
-                  humidity={weather.humidity}
-                  temperature={weather.temp}
-                  heatIndex={weather.heatindex}
-                  iconString={weather.conditions}
-                  conditions={weather.conditions}
-                  isCelsius={unit === "C"}
-                />
-                <div className="flex justify-center gap-8 flex-wrap w-full sm:w-[60%] ">
-                  {values?.slice(1, 7).map((curr) => (
-                    <MiniCard
-                      key={curr.datetime}
-                      time={curr.datetime}
-                      temp={convertTemperature(curr.temp)}
-                      iconString={curr.conditions}
-                      isCelsius={unit === "C"}
+              <main className="w-full flex flex-wrap mt-10  lg:mt-40 gap-2 py-4 px-[5%] sm:px-[10%] items-center justify-center">
+                <div className="hidden lg:flex justify-center gap-8 flex-wrap w-full sm:w-[40%]">
+                  {cities.map((city) => (
+                    <CityCard
+                      key={city}
+                      city={city}
+                      onClick={() => handleCityClick(city)}
                     />
                   ))}
+                </div>
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 p-8 lg:p-0 justify-center items-center">
+                  <WeatherCard
+                    place={thisLocation}
+                    windspeed={weather.wspd}
+                    humidity={weather.humidity}
+                    temperature={weather.temp}
+                    heatIndex={weather.heatindex}
+                    iconString={weather.conditions}
+                    conditions={weather.conditions}
+                    isCelsius={unit === "C"}
+                  />
+                  <div className="flex justify-center gap-8 flex-wrap w-full sm:w-[60%] ">
+                    {values?.slice(1, 7).map((curr) => (
+                      <MiniCard
+                        key={curr.datetime}
+                        time={curr.datetime}
+                        temp={convertTemperature(curr.temp)}
+                        iconString={curr.conditions}
+                        isCelsius={unit === "C"}
+                      />
+                    ))}
+                  </div>
                 </div>
               </main>
             }
