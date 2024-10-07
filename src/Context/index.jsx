@@ -68,7 +68,7 @@ export const StateContextProvider = ({ children }) => {
           // Reverse geocoding to get the place name from latitude/longitude
           const geoResponse = await axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`, {
             headers: {
-              'User-Agent': `Propacity/1.0 (${import.meta.env.ex_email})`, // Use your app name and email here
+              'User-Agent': `Propacity/1.0 (${import.meta.env.VITE_EX_EMAIL})`, // Use your app name and email here
             }
           });
           const placeName = geoResponse.data.address.city || geoResponse.data.address.town || geoResponse.data.address.village || `${latitude}, ${longitude}`;
