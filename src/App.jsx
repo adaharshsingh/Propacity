@@ -49,21 +49,20 @@ function App() {
 
   return (
     <div className="w-full h-screen text-white bg-gray-800 bg-opacity-50 shadow-lg flex flex-col">
-      <nav className="bg-black opacity-70 border-gray-200 dark:bg-blue-200 w-full my-2 fixed z-10">
-        <div className="max-w-screen-xl flex gap-6 flex-wrap  items-center justify-between mx-auto p-4 py-0">
-          <a
-            href="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
+      <nav className="bg-black bg-opacity-70 border-b border-gray-200 dark:bg-blue-800 fixed w-full z-10 shadow-lg">
+        <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
+          <a href="/" className="flex items-center space-x-3">
             <img src={logo} className="h-14" alt="Flowbite Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-slate-900">
-              Propacity
-            </span>
+            <span className="text-2xl font-semibold text-white">Propacity</span>
           </a>
-          <Settings unit={unit} setUnit={setUnit} />
-          <SearchBar setPlace={setPlace} />
+
+          <div className="flex items-center space-x-4">
+            <SearchBar setPlace={setPlace} />
+            <Settings unit={unit} setUnit={setUnit} />
+          </div>
         </div>
       </nav>
+
 
       <BackgroundLayout />
 
@@ -72,17 +71,8 @@ function App() {
           <Route
             path="/"
             element={
-              <main className="w-full flex flex-wrap mt-10 lg:mt-40 gap-2 py-4 px-[5%] sm:px-[10%] items-center justify-center">
-                <div className="hidden lg:flex justify-center gap-8 flex-wrap w-full sm:w-[40%]">
-                  <LocationCard onClick={handleLocationClick} />
-                  {cities.map((city) => (
-                    <CityCard
-                      key={city}
-                      city={city}
-                      onClick={() => handleCityClick(city)}
-                    />
-                  ))}
-                </div>
+              <main className="w-full mt-10 flex flex-wrap gap-2 py-4 px-[5%] sm:px-[10%] items-center justify-center">
+
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 p-8 lg:p-0 justify-center items-center">
                   <WeatherCard
                     place={thisLocation}
@@ -94,7 +84,7 @@ function App() {
                     conditions={weather.conditions}
                     isCelsius={unit === "C"}
                   />
-                  <div className="flex justify-center gap-8 flex-wrap w-full sm:w-[60%] ">
+                  <div className=" ml-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full sm:w-[60%]">
                     {values?.slice(1, 7).map((curr) => (
                       <MiniCard
                         key={curr.datetime}
@@ -105,7 +95,22 @@ function App() {
                       />
                     ))}
                   </div>
+
+
+
+                  <div className="hidden mt-36 lg:flex justify-end gap-4 flex-wrap w-full sm:w-[40%]">
+                    <LocationCard onClick={handleLocationClick} />
+                    {cities.map((city) => (
+                      <CityCard
+                        key={city}
+                        city={city}
+                        onClick={() => handleCityClick(city)}
+                      />
+                    ))}
+                  </div>
+
                 </div>
+
               </main>
             }
           />
