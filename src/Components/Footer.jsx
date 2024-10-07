@@ -6,8 +6,8 @@ const Footer = () => {
       <h1 className="text-green-500 text-center mt-2 text-xl font-bold">
         Propacity - Your Weather Companion!
       </h1>
-      <div className="max-w-screen-xl mx-auto mt-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div className="flex flex-col text-left">
+      <div className="max-w-screen-xl mx-auto mt-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-6 font-bold">About Propacity</h2>
           <a href="#" className="text-lg mb-4 hover:text-green-500">
             Our Mission
@@ -19,7 +19,7 @@ const Footer = () => {
             User Testimonials
           </a>
         </div>
-        <div className="flex flex-col text-left">
+        <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-6 font-bold">Features</h2>
           <a href="#" className="text-lg mb-4 hover:text-green-500">
             Current Weather
@@ -34,7 +34,7 @@ const Footer = () => {
             City Search
           </a>
         </div>
-        <div className="flex flex-col text-left">
+        <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-6 font-bold">Get in Touch</h2>
           <a href="#" className="text-lg mb-4 hover:text-green-500">
             Support
@@ -49,7 +49,7 @@ const Footer = () => {
             Careers
           </a>
         </div>
-        <div className="flex flex-col text-left">
+        <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl mb-6 font-bold">Follow Us</h2>
           <a href="#" className="flex items-center mb-4 hover:text-green-500">
             <i className="fab fa-facebook-f mr-2"></i>
