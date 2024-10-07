@@ -49,9 +49,12 @@ function App() {
 
   return (
     <div className="w-full h-screen text-white bg-gray-800 bg-opacity-50 shadow-lg flex flex-col">
-      <nav className="bg-white border-gray-200 dark:bg-blue-200 w-full my-2 fixed z-10">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 py-0">
-          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+      <nav className="bg-black opacity-70 border-gray-200 dark:bg-blue-200 w-full my-2 fixed z-10">
+        <div className="max-w-screen-xl flex gap-6 flex-wrap  items-center justify-between mx-auto p-4 py-0">
+          <a
+            href="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
             <img src={logo} className="h-14" alt="Flowbite Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-slate-900">
               Propacity

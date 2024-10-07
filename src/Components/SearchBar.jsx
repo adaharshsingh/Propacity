@@ -68,8 +68,8 @@ function SearchBar({ setPlace }) {
   }, [dropdownRef]);
 
   return (
-    <div className="relative flex justify-center">
-      <div className="bg-white w-full max-w-[40rem] shadow-2xl rounded-full px-4 py-1 gap-3 flex items-center justify-center transition-all duration-300 transform hover:shadow-lg hover:scale-105">
+    <div className=" relative max-w-[40rem] flex flex-1  justify-center">
+      <div className="bg-white w-full  shadow-2xl rounded-full px-4 py-1 gap-3 flex items-center justify-center transition-all duration-300 transform hover:shadow-lg hover:scale-105">
         <img src={searchIcon} alt="search" className="w-[1.5rem] h-[1.5rem]" />
 
         <input
@@ -79,7 +79,7 @@ function SearchBar({ setPlace }) {
           onChange={handleInputChange}
           onFocus={() => setDropdownOpen(true)}
           onKeyDown={handleKeyPress}
-          className="focus:outline-none w-full text-black text-lg bg-transparent placeholder-gray-500"
+          className="focus:outline-none w-full min-w-[5rem] text-black text-lg bg-transparent placeholder-gray-500"
         />
 
         <button
