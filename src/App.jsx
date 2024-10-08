@@ -72,8 +72,8 @@ function App() {
           <Route
             path="/"
             element={
-              <main className="w-full flex flex-wrap mt-10 lg:mt-40 gap-2 py-4 px-[5%] sm:px-[10%] items-center justify-center">
-                <div className="hidden lg:flex justify-center gap-8 flex-wrap w-full sm:w-[40%]">
+              <main className="w-full flex flex-row flex-wrap mx-auto mt-10 mb-[240px] lg:mt-40 gap-2 py-4 px-[5%] sm:px-[25%] lg:px-[10%] items-start justify-center">
+                <div className="hidden w-full items-center lg:flex flex-row flex-wrap justify-center gap-5 ">
                   <LocationCard onClick={handleLocationClick} />
                   {cities.map((city) => (
                     <CityCard
@@ -83,7 +83,7 @@ function App() {
                     />
                   ))}
                 </div>
-                <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 p-8 lg:p-0 justify-center items-center">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 p-8 lg:p-0 justify-center items-center mx-auto">
                   <WeatherCard
                     place={thisLocation}
                     windspeed={weather.wspd}
@@ -94,7 +94,7 @@ function App() {
                     conditions={weather.conditions}
                     isCelsius={unit === "C"}
                   />
-                  <div className="flex justify-center gap-8 flex-wrap w-full sm:w-[60%] ">
+                  <div className="w-full flex justify-around gap-8 flex-wrap ">
                     {values?.slice(1, 7).map((curr) => (
                       <MiniCard
                         key={curr.datetime}
