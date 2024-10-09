@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import "./App.css"
 import { useStateContext } from "./Context"
 import { BackgroundLayout, WeatherCard, MiniCard } from "./Components"
@@ -24,7 +24,7 @@ function App() {
 		fetchWeatherByCoords,
 	} = useStateContext()
 	const [unit, setUnit] = React.useState("C")
-	const [currentLocs, setCurrentLocs] = useState(() => {
+	const [currentLocs, setCurrentLocs] = React.useState(() => {
 		const storedArray = localStorage.getItem("currentLocs")
 		return storedArray ? JSON.parse(storedArray) : cities
 	})
