@@ -1,7 +1,8 @@
-
+import { useStateContext } from '../Context';
 import React from 'react';
 
-const Settings = ({ unit, setUnit }) => {
+const Settings = () => {
+  const { unit ,setUnit} = useStateContext();
   const toggleUnitSystem = () => {
     setUnit(unit === 'C' ? 'F' : 'C'); // Toggle between Celsius and Fahrenheit
   };

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
+    const [unit, setUnit] = useState('C');
     const [weather, setWeather] = useState({});
     const [values, setValues] = useState([]);
     const [place, setPlace] = useState('Jaipur');
@@ -172,6 +173,8 @@ export const StateContextProvider = ({ children }) => {
         <StateContext.Provider value={{
             weather,
             setPlace,
+            unit,
+            setUnit,
             values,
             thisLocation,
             place,

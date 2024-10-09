@@ -4,8 +4,8 @@ import citiesData from '../assets/cities.json';
 import { useStateContext } from '../Context'; // Import the context
 import toast from 'react-hot-toast';
 
-function SearchBar({ setPlace }) {
-  const { place } = useStateContext(); // Access place from context
+function SearchBar() {
+  const { place ,setPlace} = useStateContext(); // Access place from context
   const [input, setInput] = useState(""); // Initialize input for the search element with "" as an default value when value is not provided
   const [filteredCities, setFilteredCities] = useState([]);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
