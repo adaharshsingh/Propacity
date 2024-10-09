@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./App.css"
 import { useStateContext } from "./Context"
 import { BackgroundLayout, WeatherCard, MiniCard } from "./Components"
@@ -78,11 +78,7 @@ function App() {
 						</span>
 					</a>
 					<Settings unit={unit} setUnit={setUnit} />
-					<SearchBar
-						setPlace={setPlace}
-						setCurrentLocs={setCurrentLocs}
-						currentLocs={currentLocs}
-					/>
+					<SearchBar setPlace={setPlace} setCurrentLocs={setCurrentLocs} />
 				</div>
 			</nav>
 

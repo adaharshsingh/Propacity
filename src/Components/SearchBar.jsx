@@ -4,7 +4,7 @@ import citiesData from "../assets/cities.json"
 import { useStateContext } from "../Context" // Import the context
 import toast from "react-hot-toast"
 
-function SearchBar({ setPlace, setCurrentLocs, currentLocs }) {
+function SearchBar({ setPlace, setCurrentLocs }) {
 	const { place } = useStateContext() // Access place from context
 	const [input, setInput] = useState("") // Initialize input for the search element with "" as an default value when value is not provided
 	const [filteredCities, setFilteredCities] = useState([])
@@ -45,7 +45,6 @@ function SearchBar({ setPlace, setCurrentLocs, currentLocs }) {
 				if (updatedArr.length > 3) {
 					updatedArr.pop() // Remove last item from array
 				}
-				// prev.splice(0, 1, place)
 				return updatedArr
 			})
 			setInput("") // Clear input after search
