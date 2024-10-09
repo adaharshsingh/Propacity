@@ -92,15 +92,13 @@ function App() {
 							<main className="w-full flex flex-row flex-wrap mx-auto mt-10 mb-[240px] lg:mt-40 gap-2 py-4 px-[5%] sm:px-[25%] lg:px-[10%] items-start justify-center">
 								<div className="hidden w-full items-center lg:flex flex-row flex-wrap justify-center gap-5 ">
 									<LocationCard onClick={handleLocationClick} />
-									{/* {currentLocs.map((city) => ( */}
-									<CityCard
-										currentLocs={currentLocs}
-										handleCityClick={handleCityClick}
-										// key={city}
-										// city={city}
-										// onClick={() => handleCityClick(city)}
-									/>
-									{/* ))} */}
+									{currentLocs.map((city) => (
+										<CityCard
+											key={city}
+											city={city}
+											onClick={() => handleCityClick(city)}
+										/>
+									))}
 								</div>
 								<div className="flex flex-col lg:flex-row gap-8 lg:gap-8 p-8 lg:p-0 justify-center items-center mx-auto">
 									<WeatherCard
