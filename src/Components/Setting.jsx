@@ -11,7 +11,7 @@ const Settings = () => {
     <div className="flex items-center">
       <button 
         onClick={toggleUnitSystem} 
-        className="bg-blue-500 text-white font-semibold px-4 py-2 rounded md:px-3 "
+        className="bg-blue-500 text-white font-semibold px-3 py-1 rounded text-sm md:px-4 md:py-2 md:text-base"
       >
         Switch to {unit === 'C' ? 'US System (°F)' : 'SI System (°C)'}
       </button>

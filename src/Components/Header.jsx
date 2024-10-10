@@ -13,13 +13,12 @@ const Header = ({ setPlace, unit, setUnit }) => {
     return (
         <nav className="bg-black bg-opacity-70 border-b border-gray-200 dark:bg-blue-800 fixed w-full z-10 shadow-lg">
             <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
-                {/* Logo and title */}
+        
                 <a href="/" className="flex items-center space-x-3">
                     <img src={logoo} className="h-12 md:h-14" alt="Flowbite Logo" />
                     <span className="text-lg md:text-2xl font-semibold text-white">Propacity</span>
                 </a>
 
-                {/* Hamburger Icon for small screens */}
                 <button
                     onClick={toggleMenu}
                     type="button"
@@ -43,19 +42,17 @@ const Header = ({ setPlace, unit, setUnit }) => {
                     </svg>
                 </button>
 
-                {/* Main Menu for medium and large screens */}
                 <div className="hidden md:flex items-center space-x-4">
                     <SearchBar setplace={setPlace} />
                     <Settings unit={unit} setunit={setUnit} />
                 </div>
             </div>
-
-            {/* Dropdown menu for small screens */}
             <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-black bg-opacity-90 border-t border-gray-700 dark:bg-blue-900 w-11/12 max-w-xs mx-auto p-4 rounded-lg space-y-4`}>
                 <div className="border-b border-gray-600 pb-4">
                     <SearchBar setplace={setPlace} />
                 </div>
-                <div className="pt-4">
+                
+                <div className="pt-4 flex justify-center">
                     <Settings unit={unit} setunit={setUnit} />
                 </div>
             </div>

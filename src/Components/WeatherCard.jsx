@@ -82,14 +82,6 @@ const WeatherCard = ({
       <div className='w-full p-4 flex justify-center items-center text-3xl custom-max:text-2xl font-semibold'>
         {conditions}
       </div>
-      <div className="flex justify-center mt-4">
-        <button 
-          onClick={toggleUnitSystem} 
-          className="bg-blue-500 text-white font-semibold px-4 py-2 rounded"
-        >
-          Switch to {unit === 'C' ? 'US System (°F)' : 'SI System (°C)'}
-        </button>
-      </div>
     </div>
   );
 };
