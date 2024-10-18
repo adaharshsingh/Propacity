@@ -4,11 +4,82 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propacity</title>
+    <title>Propacity - Search City on Maps</title>
     <link rel="shortcut icon" href="./src/assets/icons/logo.png" type="image/x-icon">
+    <style>
+      #map {
+        height: 80vh; /* Make sure the map takes up a large portion of the page */
+        width: 100%;
+      }
+      .search-bar {
+        margin: 20px;
+        text-align: center;
+      }
+      .search-bar input {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .search-bar button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="search-bar">
+      <input type="text" id="city-input" placeholder="Enter city name" />
+      <button id="search-btn">Search</button>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Google Maps JavaScript API -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"
+      async
+    ></script>
+
     <script type="module" src="/src/main.jsx"></script>
+    
+    <script>
+      let map, geocoder;
+
+      function initMap() {
+        // Initialize the map centered at a default location
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: 37.7749, lng: -122.4194 }, // Default: San Francisco
+          zoom: 8,
+        });
+
+        // Initialize the Geocoder for searching city names
+        geocoder = new google.maps.Geocoder();
+      }
+
+      document.getElementById('search-btn').addEventListener('click', function () {
+        const city = document.getElementById('city-input').value;
+        if (city) {
+          searchCity(city);
+        } else {
+          alert('Please enter a city name.');
+        }
+      });
+
+      function searchCity(city) {
+        geocoder.geocode({ address: city }, function (results, status) {
+          if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+            map.setZoom(12); // Zoom in to the city
+            new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+            });
+          } else {
+            alert('City not found: ' + status);
+          }
+        });
+      }
+    </script>
   </body>
 </html>
