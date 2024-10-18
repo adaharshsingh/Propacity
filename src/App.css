@@ -1,0 +1,10 @@
+html, body {
+    height: 100%; /* Ensure full height */
+    overflow-y: auto; /* Allow vertical scrolling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.app-container {
+    min-height: 100vh; /* Ensure the app takes at least the full height */
+}

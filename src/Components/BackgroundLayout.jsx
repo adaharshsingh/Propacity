@@ -8,6 +8,7 @@ import Rainy from '../assets/images/Rainy.jpg';
 import Snow from '../assets/images/snow.jpg';
 import Stormy from '../assets/images/Stormy.jpg';
 import Sunny from '../assets/images/Sunny.jpg';
+import Footer from './Footer';
 
 const BackgroundLayout = () => {
   const { weather } = useStateContext();
@@ -36,7 +37,7 @@ const BackgroundLayout = () => {
     <div className="fixed top-0 left-0 h-screen w-full -z-10">
       <img src={image} alt="weather_image" className="h-full w-full object-cover" />
       {/* Keep the translucent box in a fixed position */}
-      <div className="absolute top-[calc(50%-0.5cm)] left-1/2 h-3/4 w-3/4 bg-black opacity-50 rounded-lg transform -translate-x-1/2 -translate-y-1/2"></div>
+      {/* <div className="absolute top-[calc(50%-0.5cm)] left-1/2 h-3/4 w-3/4 bg-black opacity-50 rounded-lg transform -translate-x-1/2 -translate-y-1/2"></div> */}
     </div>
   );
 };

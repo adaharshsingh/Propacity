@@ -31,16 +31,14 @@ const MiniCard = ({ time, temp, iconString, isCelsius }) => {
   }, [iconString]);
 
   return (
-    <div className='mini-card glassCard w-[10rem] h-[10rem] p-4 flex flex-col'>
-      <p className='text-center'>
-        {new Date(time).toLocaleTimeString('en', { weekday: 'long' }).split(" ")[0]}
-      </p>
-      <hr />
-      <div className='w-full flex justify-center items-center flex-1'>
-        <img src={icon} alt="forecast not available" className='weather-icon w-[4rem] h-[4rem]' />
+    <div className='mini-card glassCard w-[10rem] h-[10rem] p-4 flex flex-col justify-between'>
+      <p className='text-center'>{new Date(time).toLocaleTimeString('en', { weekday: 'long' }).split(" ")[0]}</p>
+      <div className='w-full flex justify-center items-center'>
+        <img src={icon} alt="forecast not available" className='w-[4rem] h-[4rem]' />
       </div>
       <p className='text-center font-bold'>{temp}&deg;{isCelsius ? 'C' : 'F'}</p>
     </div>
+
   );
 };
 

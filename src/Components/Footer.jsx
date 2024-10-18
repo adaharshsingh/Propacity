@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-black opacity-80 text-white py-8 px-5">
+    <div className="bg-black opacity-80 text-white py-8 px-5 w-screen">
       <h1 className="text-green-500 text-center mt-2 text-xl font-bold">
         Propacity - Your Weather Companion!
       </h1>

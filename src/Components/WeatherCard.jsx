@@ -47,35 +47,27 @@ const WeatherCard = ({
   };
 
   return (
-    <div className='weather-card custom-max:w-[18rem] w-[22rem] custom-max:h-[30rem] min-w-[22rem] h-[30rem] glassCard p-4'>
-      <div className='flex w-full justify-center items-center gap-4 mt-12 mb-4 custom-max:gap-2'>
-        <img className='weather-icon  w-[5rem]' src={icon} alt="weather_icon" />
-        <p className='font-bold custom-max:text-4xl text-5xl flex justify-center items-center'>
-          {convertTemperature(temperature)} &deg;{isCelsius ? 'C' : 'F'}
-        </p>
+    <div className='weather-card w-[28rem] h-[30rem] bg-white/80 shadow-lg rounded-xl p-10 flex flex-col justify-between items-center transition-all duration-300 hover:shadow-xl hover:scale-105'>
+      <div className='flex justify-center items-center gap-4'>
+        <img className='w-[4.5rem]' src={icon} alt="weather_icon" />
+        <p className='text-5xl font-bold text-gray-800'>{convertTemperature(temperature)}&deg;{isCelsius ? 'C' : 'F'}</p>
       </div>
-      <div className='font-bold text-center custom-max:text-lg text-xl'>{place}</div>
-      <div className='w-full flex justify-between items-center mt-4'>
-        <p className='flex-1 text-center p-2 '>{new Date().toDateString()}</p>
-        <p className='flex-1 text-center p-2 '>{time}</p>
+      <div className='text-center text-xl font-semibold text-gray-700'>{place}</div>
+      <div className='w-full flex justify-between text-gray-600 text-sm'>
+        <p>{new Date().toDateString()}</p>
+        <p>{time}</p>
       </div>
-      <div className='w-full flex justify-between items-center mt-4 gap-4'>
-        <p className='flex-1 text-center p-2 font-bold text-base bg-blue-600 shadow rounded-lg'>
-          Wind Speed <span className='font-normal'>{windspeed} km/h</span>
-        </p>
-        <p className='flex-1 text-center p-2 font-bold text-base rounded-lg bg-green-600'>
-          Humidity <span className='font-normal'>{humidity} gm/m&#179;</span>
-        </p>
+      <div className='w-full flex justify-between mt-4 gap-4'>
+        <p className='w-1/2 text-center p-2 bg-blue-500 text-white rounded-lg'>Wind Speed: {windspeed} km/h</p>
+        <p className='w-1/2 text-center p-2 bg-green-500 text-white rounded-lg'>Humidity: {humidity} gm/m³</p>
       </div>
-      <div className='w-full p-3 mt-4 flex justify-between items-center'>
-        <p className='font-semibold custom-max:text-base text-lg'>Heat Index</p>
-        <p className='custom-max:text-base text-lg'>{heatIndex}</p>
+      <div className='w-full flex justify-between items-center p-3 bg-gray-100 rounded-lg'>
+        <p className='font-semibold text-gray-700'>Heat Index</p>
+        <p className='text-gray-700'>{heatIndex}</p>
       </div>
-      <hr className='bg-slate-600' />
-      <div className='w-full p-4 flex justify-center items-center text-3xl custom-max:text-2xl font-semibold'>
-        {conditions}
-      </div>
+      <div className='w-full flex justify-center text-2xl font-semibold text-gray-800'>{conditions}</div>
     </div>
+
   );
 };
 
