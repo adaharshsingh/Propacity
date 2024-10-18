@@ -11,6 +11,7 @@ const NotFound = () => {
       
       <Link
         to="/"
+        aria-label="Go back to home page"
         className="mt-6 bg-blue-500 text-white text-sm md:text-lg px-4 py-2 md:px-6 md:py-3 rounded-md shadow-md hover:bg-blue-600 transition-all duration-200 ease-in-out"
       >
         Go back to Home
