@@ -21,7 +21,7 @@
 
 /* WeatherCard Styles */
 .weather-card {
-  transform: translateY(2cm);
+  transform: translateY(0cm);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
