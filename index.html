@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propacity</title>
-    <link rel="shortcut icon" href="./src/assets/icons/logo.png" type="image/x-icon">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .glassCard {
+      background: rgba(225, 225, 225, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 10px;
+      border: 1px solid rgba(225, 225, 225, 0.18);
+    }
+
+    /* Weather Card Styles */
+    .weather-card {
+      transform: translateY(2cm);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .weather-card:hover {
+      transform: translateY(2cm) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Weather Icon Styles */
+    .weather-icon {
+      width: 80px;
+      height: 80px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .mini-card:hover .weather-icon {
+      transform: rotate(10deg);
+    }
+
+    .weather-card:hover .weather-icon {
+      transform: rotate(15deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-200 flex items-center justify-center h-screen">
+  <div class="glassCard p-6 max-w-sm rounded-lg shadow-lg">
+    <div class="weather-card p-4 text-center">
+      <img src="https://via.placeholder.com/80" alt="Weather Icon" class="weather-icon mb-4" />
+      <h2 class="text-2xl font-bold mb-2">Sunny</h2>
+      <p class="text-gray-700">Temperature: <strong>25°C</strong></p>
+      <p class="text-gray-700">Humidity: <strong>60%</strong></p>
+      <p class="text-gray-700">Wind: <strong>15 km/h</strong></p>
+      <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">
+        View Details
+      </button>
+    </div>
+  </div>
+</body>
 </html>
+
