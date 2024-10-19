@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propacity</title>
-    <link rel="shortcut icon" href="./src/assets/icons/logo.png" type="image/x-icon">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Weather</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding-top: 50px;
+        }
+
+        #weatherApp {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #weatherResult {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="weatherApp">
+    <h1>Real-Time Weather</h1>
+    <!-- No API Key Input Field Here -->
+    <input type="text" id="cityName" placeholder="Enter City Name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+</div>
+
+<script>
+    function getWeather() {
+        const city = document.getElementById('cityName').value;
+        const apiKey = "cdaafd6704d5d5a4b718171e339635c4";  // Replace with your actual API key
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('City not found');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const weather = `
+                    <p><strong>Weather in ${data.name}:</strong></p>
+                    <p>Temperature: ${data.main.temp} °C</p>
+                    <p>Weather: ${data.weather[0].description}</p>
+                    <p>Humidity: ${data.main.humidity}%</p>
+                    <p>Wind Speed: ${data.wind.speed} m/s</p>
+                `;
+                document.getElementById('weatherResult').innerHTML = weather;
+            })
+            .catch(error => {
+                document.getElementById('weatherResult').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            });
+    }
+</script>
+
+</body>
 </html>
