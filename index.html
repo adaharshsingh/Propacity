@@ -2,13 +2,106 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Propacity</title>
-    <link rel="shortcut icon" href="./src/assets/icons/logo.png" type="image/x-icon">
+    <title>Responsive Navbar</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navbar styling */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        display: block;
+      }
+
+      .navbar a:hover {
+        background-color: #575757;
+        border-radius: 5px;
+      }
+
+      .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      /* Navbar links */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li {
+        margin: 0 10px;
+      }
+
+      /* Hide the hamburger icon on larger screens */
+      .hamburger {
+        display: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Responsive for small screens */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background-color: #333;
+        }
+
+        .nav-links li {
+          text-align: center;
+          padding: 10px 0;
+          margin: 0;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        /* Show nav links when activated */
+        .navbar.active .nav-links {
+          display: flex;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Propacity</div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      // Function to toggle the navbar on smaller screens
+      function toggleMenu() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('active');
+      }
+    </script>
   </body>
 </html>
