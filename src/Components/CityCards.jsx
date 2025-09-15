@@ -1,12 +1,14 @@
-const CityCard = ({ city, onClick }) => {
-	return (
-		<div
-			onClick={onClick}
-			className="city-card glassCard w-[8rem] h-[3rem] p-2 cursor-pointer flex flex-col justify-center items-center text-center opacity-75 hover:opacity-100 transition-opacity"
-		>
-			<p className="font-bold text-lg">{city}</p>
-		</div>
-	)
+function CityCard({ city, onClick, isSelected }) {
+    return (
+        <div
+            onClick={onClick}
+            className={`cursor-pointer px-4 py-2 rounded-lg transition-colors ${
+                isSelected ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
+            }`}
+        >
+            {city}
+        </div>
+    )
 }
 
 export default CityCard
